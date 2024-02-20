@@ -62,7 +62,7 @@ main-build: L06_Example.elf secondary-outputs
 
 # Tool invocations
 L06_Example.elf L06_Example.map: $(OBJS) $(USER_OBJS) /Users/artemtymoshchuk/Documents/Study\ PUT/5\ semester/Microprocessor\ systems/Project/temp_lab/LAB6_5-6.zip_expanded/NUCLEO-F746ZG-Examples-ver-2023-24-fcf9b6ac044a2db760fdab9fb60b58e9200b54e7/L06_Example/STM32F746ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "L06_Example.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/Users/artemtymoshchuk/Documents/Study PUT/5 semester/Microprocessor systems/Project/temp_lab/LAB6_5-6.zip_expanded/NUCLEO-F746ZG-Examples-ver-2023-24-fcf9b6ac044a2db760fdab9fb60b58e9200b54e7/L06_Example/STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="L06_Example.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "L06_Example.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/Users/artemtymoshchuk/Documents/Study PUT/5 semester/Microprocessor systems/Project/temp_lab/LAB6_5-6.zip_expanded/NUCLEO-F746ZG-Examples-ver-2023-24-fcf9b6ac044a2db760fdab9fb60b58e9200b54e7/L06_Example/STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="L06_Example.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
